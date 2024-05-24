@@ -1,25 +1,29 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import "./App.css";
+import ExerciseListPage from "./components/ExerciseList/ExerciseListPage";
+import NavBar from "./components/Common/NavBar";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Workout from "./components/Workout/Workout";
+import CreateTemplate from "./components/Templates/CreateTemplate";
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <div className="bg-slate-200 w-screen h-screen">
+          <NavBar />
+          <div>
+            <Routes>
+              <Route path="/exercise" element={<ExerciseListPage />} />
+              <Route path="/workout" element={<Workout />} />
+              <Route path="/createTemplate" element={<CreateTemplate />} />
+            </Routes>
+          </div>
+        </div>
+      </BrowserRouter>
+    </QueryClientProvider>
   );
 }
 

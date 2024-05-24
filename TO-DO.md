@@ -1,0 +1,9 @@
+- [] Setup
+- [] List Components
+  - Home Page - Track New workout, History if any, Workout template(new and list)
+  - Exercise List - table with search, data from json or endpoint
+  - Track workout page - track workout=new/edit/track tempate=new workout=new workout from template
+  - Create template -
+  - edit template
+  - track template
+  - History page - horizontal div that hold all content we repaet such things based on how many instances of it are present. Same for templates(view)
